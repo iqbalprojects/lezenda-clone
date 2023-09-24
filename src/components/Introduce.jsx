@@ -37,7 +37,7 @@ const Introduce = () => {
                     >
                         we help
                         <span
-                            className={`${metal.className} text-5xl xs:text-7xl inline-block mt-4`}
+                            className={`${metal.className} text-5xl xs:text-7xl block mt-4`}
                         >
                             grow brand awareness and increase sales.
                         </span>

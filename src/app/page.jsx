@@ -101,11 +101,11 @@ export default function Home({ searchParams }) {
 
     return (
         <main className="bg-gradient-to-b from-[#1f2144] to-[#799cbc] flex flex-col gap-y-12 py-10">
-            <section className="text-white flex flex-col gap-y-10">
+            <section className="text-white flex flex-col gap-y-10 container mx-auto max-w-7xl">
                 <h2 className={`${metal.className} px-8 text-5xl xs:text-7xl`}>
                     Digital consultants
                     <span
-                        className={`${notoSerifJP.className} text-4xl xs:text-6xl inline-block`}
+                        className={`${notoSerifJP.className} text-4xl xs:text-6xl block`}
                     >
                         experts in
                     </span>
@@ -122,13 +122,13 @@ export default function Home({ searchParams }) {
                     ))}
                 </div>
             </section>
-            <section>
+            <section className="container mx-auto max-w-7xl flex flex-col gap-y-10">
                 <h2
                     className={`${notoSerifJP.className} text-white px-8 text-3xl xs:text-5xl xs:leading-snug`}
                 >
                     that crossed path with
                     <span
-                        className={`${metal.className} text-4xl xs:text-[4.25rem] leading-none inline-block mt-4`}
+                        className={`${metal.className} text-4xl xs:text-[4.25rem] leading-none block mt-4`}
                     >
                         the best in the business :
                     </span>
