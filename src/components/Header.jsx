@@ -2,9 +2,9 @@ import { metal, notoSerifJP } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
 
-const Introduce = () => {
+const Header = () => {
     return (
-        <div className="h-screen w-full relative text-white">
+        <header className="h-screen w-full relative text-white">
             <video
                 poster="/images/cloud.jpeg"
                 playsInline
@@ -18,7 +18,7 @@ const Introduce = () => {
             <div className="absolute top-0 h-screen w-full px-4 grid grid-rows-6 -space-y-10">
                 <div className="mx-auto text-center row-span-2 self-center">
                     <p className={`${metal.className} text-xl mb-1.5`}>
-                        introducing:
+                        introducing :
                     </p>
                     <Image
                         src={"/images/Lezenda_White.png"}
@@ -26,7 +26,7 @@ const Introduce = () => {
                         height={130}
                         quality={50}
                         loading="lazy"
-                        className="h-auto w-auto ml-4"
+                        className="h-auto w-auto ml-2.5 scale-75 xs:scale-90"
                         alt="Lezenda Logo"
                     />
                 </div>
@@ -43,14 +43,14 @@ const Introduce = () => {
                     </h1>
                     <Link
                         href="#"
-                        className="underline text-sm sm:text-base underline-offset-2"
+                        className="underline text-base sm:text-lg underline-offset-2"
                     >
                         GET TO KNOW US
                     </Link>
                 </div>
             </div>
-        </div>
+        </header>
     );
 };
 
-export default Introduce;
+export default Header;

@@ -1,6 +1,8 @@
 import Card from "@/components/Card";
 import Dropdown from "@/components/Dropdown";
 import { metal, notoSerifJP } from "@/fonts";
+import Link from "next/link";
+import Marquee from "react-fast-marquee";
 
 const expertise = [
     {
@@ -93,15 +95,20 @@ const clients = [
         link: null,
     },
 ];
+const apiURL =
+    process.env.API_DOMAIN + process.env.API_PATH + process.env.CUSTOM_DOMAIN;
 
-export default function Home() {
+export default async function Home() {
+    const { posts } = await fetch(apiURL + "posts").then((response) =>
+        response.json()
+    );
     return (
         <main className="bg-gradient-to-b from-[#1f2144] to-[#799cbc] flex flex-col gap-y-12 py-10">
             <section className="text-white flex flex-col gap-y-10 container mx-auto max-w-7xl">
                 <h2 className={`${metal.className} px-8 text-5xl xs:text-7xl`}>
                     Digital consultants
                     <span
-                        className={`${notoSerifJP.className} text-4xl xs:text-6xl block`}
+                        className={`${notoSerifJP.className} text-4xl mt-1.5 xs:text-[3.5rem] block`}
                     >
                         experts in
                     </span>
@@ -116,13 +123,13 @@ export default function Home() {
             </section>
             <section className="container mx-auto max-w-7xl flex flex-col gap-y-10">
                 <h2
-                    className={`${notoSerifJP.className} text-white px-8 text-3xl xs:text-5xl xs:leading-snug`}
+                    className={`${notoSerifJP.className} text-white tracking-wider px-8 text-3xl xs:text-5xl xs:leading-snug`}
                 >
                     that crossed path with
                     <span
-                        className={`${metal.className} text-4xl xs:text-[4.25rem] leading-none block mt-4`}
+                        className={`${metal.className} text-4xl tracking-normal xs:text-[4.25rem] leading-none block mt-3.5`}
                     >
-                        the best in the business :
+                        the best in the business:
                     </span>
                 </h2>
                 <div className="px-4 flex flex-col gap-y-4">
@@ -131,6 +138,38 @@ export default function Home() {
                             <Card client={client} />
                         </div>
                     ))}
+                </div>
+            </section>
+            <section>
+                <Marquee speed={50}>
+                    <h2
+                        className={`${notoSerifJP.className} text-[#1f2144] px-20 text-5xl my-7`}
+                    >
+                        A peek into{" "}
+                        <span
+                            className={`${metal.className} underline underline-offset-8 text-7xl decoration-2`}
+                        >
+                            our mind
+                        </span>
+                    </h2>
+                </Marquee>
+                <div className="container mx-auto max-w-7xl flex flex-col gap-y-8 my-6">
+                    {posts.data
+                        .filter((post, index) => index < 3)
+                        .map((post) => (
+                            <div
+                                key={post.id}
+                                className="flex flex-col gap-y-1.5 px-8 pb-5 border-b border-b-black"
+                            >
+                                <h3 className="text-xl">"{post.title}"</h3>
+                                <Link
+                                    href={`/posts/${post.path}`}
+                                    className="text-sm underline font-light"
+                                >
+                                    Read more
+                                </Link>
+                            </div>
+                        ))}
                 </div>
             </section>
         </main>
