@@ -42,7 +42,9 @@ const Footer = () => {
                 </Link>
                 <Link href={"#"}>Privacy + terms</Link>
             </div>
-            <p class="text-xs font-light tracking-wide px-4">@2023 Lezenda</p>
+            <p className="text-xs font-light tracking-wide px-4">
+                @2023 Lezenda
+            </p>
         </footer>
     );
 };
