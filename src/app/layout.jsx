@@ -11,6 +11,7 @@ export async function generateMetadata() {
     const { user } = await fetch(apiURL).then((response) => response.json());
     return {
         title: user.store_name,
+        description: user.slogan,
         openGraph: {
             title: user.store_name,
             description: user.slogan,
