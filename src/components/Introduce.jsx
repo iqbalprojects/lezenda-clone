@@ -27,7 +27,7 @@ const Introduce = () => {
                         height={130}
                         quality={50}
                         loading="lazy"
-                        className="h-auto w-auto"
+                        className="h-auto w-auto ml-4"
                         alt="Lezenda Logo"
                     />
                 </div>
