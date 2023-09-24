@@ -137,14 +137,18 @@ export default function Home({ searchParams }) {
                     {clients.map((item, index) => (
                         <Link
                             href={
-                                !expert
+                                !expert && item.brand === client
+                                    ? `?${new URLSearchParams()}`
+                                    : expert && item.brand === client
                                     ? `?${new URLSearchParams({
+                                          expert,
+                                      })}`
+                                    : expert && item.brand !== client
+                                    ? `?${new URLSearchParams({
+                                          expert,
                                           client: item.brand,
                                       })}`
-                                    : item.brand === client
-                                    ? `?${new URLSearchParams()}`
                                     : `?${new URLSearchParams({
-                                          expert,
                                           client: item.brand,
                                       })}`
                             }

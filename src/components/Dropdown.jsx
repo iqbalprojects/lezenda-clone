@@ -8,17 +8,19 @@ const Dropdown = ({ item, expert, client }) => {
         <div className={`${montserrat.className}`}>
             <Link
                 href={
-                    !client
-                        ? `?${new URLSearchParams({
-                              expert: item.title,
-                          })}`
-                        : item.title === expert
+                    !client && item.title === expert
+                        ? `?${new URLSearchParams()}`
+                        : client && item.title === expert
                         ? `?${new URLSearchParams({
                               client,
+                          })}`
+                        : client && item.title !== expert
+                        ? `?${new URLSearchParams({
+                              client,
+                              expert: item.title,
                           })}`
                         : `?${new URLSearchParams({
                               expert: item.title,
-                              client,
                           })}`
                 }
                 className="flex items-center justify-between relative px-8 border-b pb-2.5"
