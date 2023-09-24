@@ -1,7 +1,6 @@
+import Card from "@/components/Card";
 import Dropdown from "@/components/Dropdown";
 import { metal, notoSerifJP } from "@/fonts";
-import Image from "next/image";
-import Link from "next/link";
 
 const expertise = [
     {
@@ -95,10 +94,7 @@ const clients = [
     },
 ];
 
-export default function Home({ searchParams }) {
-    const expert = searchParams.expert;
-    const client = searchParams.client;
-
+export default function Home() {
     return (
         <main className="bg-gradient-to-b from-[#1f2144] to-[#799cbc] flex flex-col gap-y-12 py-10">
             <section className="text-white flex flex-col gap-y-10 container mx-auto max-w-7xl">
@@ -111,13 +107,9 @@ export default function Home({ searchParams }) {
                     </span>
                 </h2>
                 <div className="flex flex-col gap-y-5">
-                    {expertise.map((item, index) => (
+                    {expertise.map((expert, index) => (
                         <div key={index}>
-                            <Dropdown
-                                item={item}
-                                expert={expert}
-                                client={client}
-                            />
+                            <Dropdown expert={expert} />
                         </div>
                     ))}
                 </div>
@@ -134,52 +126,10 @@ export default function Home({ searchParams }) {
                     </span>
                 </h2>
                 <div className="px-4 flex flex-col gap-y-4">
-                    {clients.map((item, index) => (
-                        <Link
-                            href={
-                                !expert && item.brand === client
-                                    ? `?${new URLSearchParams()}`
-                                    : expert && item.brand === client
-                                    ? `?${new URLSearchParams({
-                                          expert,
-                                      })}`
-                                    : expert && item.brand !== client
-                                    ? `?${new URLSearchParams({
-                                          expert,
-                                          client: item.brand,
-                                      })}`
-                                    : `?${new URLSearchParams({
-                                          client: item.brand,
-                                      })}`
-                            }
-                            className="bg-white pl-4 py-2 rounded-xl"
-                            key={index}
-                        >
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <h3 className="font-medium">
-                                        {item.brand}
-                                    </h3>
-                                    <p className="text-xs">{item.title}</p>
-                                </div>
-                                <Image
-                                    src={item.image}
-                                    width={70}
-                                    height={70}
-                                    quality={50}
-                                    loading="lazy"
-                                    alt="Client Logo"
-                                    className="h-20 w-20"
-                                />
-                            </div>
-                            <p
-                                className={`${
-                                    item.brand !== client ? "hidden" : "block"
-                                } text-xs pb-2 pr-4`}
-                            >
-                                {item.description}
-                            </p>
-                        </Link>
+                    {clients.map((client, index) => (
+                        <div key={index}>
+                            <Card client={client} />
+                        </div>
                     ))}
                 </div>
             </section>

@@ -1,7 +1,6 @@
 import { metal, notoSerifJP } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Introduce = () => {
     return (

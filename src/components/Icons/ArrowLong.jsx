@@ -1,5 +1,3 @@
-import React from "react";
-
 const ArrowLong = ({ className }) => {
     return (
         <div
