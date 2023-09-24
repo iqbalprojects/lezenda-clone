@@ -1,28 +1,35 @@
+"use client";
+
 import { montserrat } from "@/fonts";
-import React from "react";
+import React, { useState } from "react";
 import ArrowLong from "./Icons/ArrowLong";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Dropdown = ({ item, expert, client }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const router = useRouter();
     return (
         <div className={`${montserrat.className}`}>
-            <Link
-                href={
-                    !client && item.title === expert
-                        ? `?${new URLSearchParams()}`
-                        : client && item.title === expert
-                        ? `?${new URLSearchParams({
-                              client,
-                          })}`
-                        : client && item.title !== expert
-                        ? `?${new URLSearchParams({
-                              client,
-                              expert: item.title,
-                          })}`
-                        : `?${new URLSearchParams({
-                              expert: item.title,
-                          })}`
-                }
+            <div
+                onClick={() => (
+                    setIsOpen((open) => !open),
+                    router.push(
+                        !client && item.title === expert
+                            ? `?${new URLSearchParams()}`
+                            : client && item.title === expert
+                            ? `?${new URLSearchParams({
+                                  client,
+                              })}`
+                            : client && item.title !== expert
+                            ? `?${new URLSearchParams({
+                                  client,
+                                  expert: item.title,
+                              })}`
+                            : `?${new URLSearchParams({
+                                  expert: item.title,
+                              })}`
+                    )
+                )}
                 className="flex items-center justify-between relative px-8 border-b pb-2.5"
             >
                 <h3 className="text-xl">{item.title}</h3>
@@ -31,7 +38,7 @@ const Dropdown = ({ item, expert, client }) => {
                         item.title === expert ? "rotate-90" : "rotate-0"
                     } absolute bg-[#1f2144] top-6 right-6`}
                 />
-            </Link>
+            </div>
             <div
                 className={`${
                     item.title !== expert
