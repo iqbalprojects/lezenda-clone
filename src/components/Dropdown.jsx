@@ -7,10 +7,10 @@ import ArrowLong from "./Icons/ArrowLong";
 const Dropdown = ({ expert }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className={`${montserrat.className}`}>
+        <div className={`${montserrat.className} border-b`}>
             <div
                 onClick={() => setIsOpen((open) => !open)}
-                className="flex items-center justify-between relative px-8 border-b pb-2.5"
+                className="flex items-center justify-between relative px-8 pb-2.5"
             >
                 <h3 className="text-xl">{expert.title}</h3>
                 <ArrowLong
@@ -24,7 +24,7 @@ const Dropdown = ({ expert }) => {
                     !isOpen ? "max-h-0 overflow-hidden" : "max-h-96"
                 } transition-all duration-500`}
             >
-                <div className="p-8 border-b">
+                <div className="p-8 border-t">
                     <h4>{expert.descTitle}</h4>
                     <p>{expert.descText}</p>
                 </div>

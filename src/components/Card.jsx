@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const Card = ({ client }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="bg-white pl-4 py-2 rounded-xl">
+        <div
+            onClick={() => setIsOpen((open) => !open)}
+            className="bg-white pl-4 py-2 rounded-xl"
+        >
             <div className="flex items-center justify-between">
                 <div>
                     <h3 className="font-medium">{client.brand}</h3>
@@ -21,9 +27,18 @@ const Card = ({ client }) => {
                     className="h-20 w-20"
                 />
             </div>
-            <p className={`${!isOpen ? "hidden" : "block"} text-xs pb-2 pr-4`}>
-                {client.description}
-            </p>
+            <div
+                className={`${
+                    !isOpen ? "hidden" : "block"
+                } text-xs flex flex-col gap-y-2 pb-2 pr-4`}
+            >
+                <p>{client.description}</p>
+                {client.link && (
+                    <Link href={client.link} className="underline">
+                        Read more
+                    </Link>
+                )}
+            </div>
         </div>
     );
 };
