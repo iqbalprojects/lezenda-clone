@@ -166,7 +166,7 @@ export default async function Home() {
                                     href={`/posts/${post.path}`}
                                     className="text-sm underline font-light"
                                 >
-                                    Read more
+                                    Read more our posts
                                 </Link>
                             </div>
                         ))}

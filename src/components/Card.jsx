@@ -35,7 +35,7 @@ const Card = ({ client }) => {
                 <p>{client.description}</p>
                 {client.link && (
                     <Link href={client.link} className="underline">
-                        Read more
+                        Read more about client
                     </Link>
                 )}
             </div>
