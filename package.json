@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@netlify/plugin-nextjs": "^4.36.1",
     "autoprefixer": "10.4.16",
     "next": "13.5.2",
     "postcss": "8.4.30",
