@@ -26,6 +26,8 @@ const Navbar = () => {
                     </Link>
                     <button
                         onClick={() => setIsShowing((isShowing) => !isShowing)}
+                        id="open"
+                        aria-label="Open Button"
                     >
                         <Star fill="#FFFFFF" />
                     </button>
@@ -44,6 +46,8 @@ const Navbar = () => {
                 <button
                     className="p-8 flex w-full justify-end"
                     onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    id="close"
+                    aria-label="Close Button"
                 >
                     <Star className="rotate-45" fill="#1f2144" />
                 </button>
