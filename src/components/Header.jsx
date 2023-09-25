@@ -15,7 +15,7 @@ const Header = () => {
             >
                 <source src="/videos/cloud.mp4" type="video/mp4" />
             </video>
-            <div className="absolute top-0 h-screen w-full px-4 grid grid-rows-6 -space-y-10">
+            <div className="absolute top-0 h-screen w-full px-8 grid grid-rows-6 -space-y-10">
                 <div className="mx-auto text-center row-span-2 self-center">
                     <p className={`${metal.className} text-xl mb-1.5`}>
                         introducing :

@@ -10,6 +10,7 @@ const apiURL =
 export async function generateMetadata() {
     const { user } = await fetch(apiURL).then((response) => response.json());
     return {
+        metadataBase: new URL("https://lezenda.com"),
         title: user.store_name,
         description: user.slogan,
         openGraph: {
