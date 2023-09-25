@@ -24,9 +24,11 @@ const Dropdown = ({ expert }) => {
                     !isOpen ? "max-h-0 overflow-hidden" : "max-h-96"
                 } transition-all duration-500`}
             >
-                <div className="p-8 border-t">
+                <div className="p-8 border-t flex flex-col gap-y-4">
                     <h4>{expert.descTitle}</h4>
-                    <p>{expert.descText}</p>
+                    {expert.descText.split("\n").map((text, index) => (
+                        <p key={index}>{text}</p>
+                    ))}
                 </div>
             </div>
         </div>

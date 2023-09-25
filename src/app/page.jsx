@@ -103,47 +103,53 @@ export default async function Home() {
         response.json()
     );
     return (
-        <main className="bg-gradient-to-b from-[#1f2144] to-[#799cbc] flex flex-col gap-y-12 py-10">
-            <section className="text-white flex flex-col gap-y-10 container mx-auto max-w-7xl">
-                <h2 className={`${metal.className} px-8 text-5xl xs:text-7xl`}>
-                    Digital consultants
-                    <span
-                        className={`${notoSerifJP.className} text-4xl mt-1.5 xs:text-[3.5rem] block`}
+        <main>
+            <section className="bg-[#1f2144] py-10">
+                <div className="text-white flex flex-col gap-y-10 container mx-auto max-w-7xl">
+                    <h2
+                        className={`${metal.className} px-8 text-5xl xs:text-7xl tracking-wide`}
                     >
-                        experts in
-                    </span>
-                </h2>
-                <div className="flex flex-col gap-y-5">
-                    {expertise.map((expert, index) => (
-                        <div key={index}>
-                            <Dropdown expert={expert} />
-                        </div>
-                    ))}
+                        Digital consultants
+                        <span
+                            className={`${notoSerifJP.className} text-4xl mt-1 xs:text-[3.5rem] block`}
+                        >
+                            experts in
+                        </span>
+                    </h2>
+                    <div className="flex flex-col gap-y-5">
+                        {expertise.map((expert, index) => (
+                            <div key={index}>
+                                <Dropdown expert={expert} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
-            <section className="container mx-auto max-w-7xl flex flex-col gap-y-10">
-                <h2
-                    className={`${notoSerifJP.className} text-white tracking-wider px-8 text-3xl xs:text-5xl xs:leading-snug`}
-                >
-                    that crossed path with
-                    <span
-                        className={`${metal.className} text-4xl tracking-normal xs:text-[4.25rem] leading-none block mt-3.5`}
+            <section className="bg-gradient-to-b from-[#1f2144] to-[#799cbc] py-10">
+                <div className="container mx-auto max-w-7xl flex flex-col gap-y-10">
+                    <h2
+                        className={`${notoSerifJP.className} text-white tracking-wider px-8 text-3xl xs:text-5xl xs:leading-snug`}
                     >
-                        the best in the business:
-                    </span>
-                </h2>
-                <div className="px-4 flex flex-col gap-y-4">
-                    {clients.map((client, index) => (
-                        <div key={index}>
-                            <Card client={client} />
-                        </div>
-                    ))}
+                        that crossed path with
+                        <span
+                            className={`${metal.className} text-4xl tracking-normal xs:text-[4.25rem] leading-none block mt-4`}
+                        >
+                            the best in the business:
+                        </span>
+                    </h2>
+                    <div className="px-4 flex flex-col gap-y-4">
+                        {clients.map((client, index) => (
+                            <div key={index}>
+                                <Card client={client} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
-            <section>
+            <section className="bg-gradient-to-b from-[#799cbc] to-[#c3dfe2] flex flex-col gap-y-10 py-10">
                 <Marquee speed={50}>
                     <h2
-                        className={`${notoSerifJP.className} text-[#1f2144] px-20 text-5xl my-7`}
+                        className={`${notoSerifJP.className} text-[#1f2144] px-20 text-5xl`}
                     >
                         A peek into{" "}
                         <span
@@ -153,7 +159,7 @@ export default async function Home() {
                         </span>
                     </h2>
                 </Marquee>
-                <div className="container mx-auto max-w-7xl flex flex-col gap-y-8 my-6">
+                <div className="container mx-auto max-w-7xl flex flex-col gap-y-8">
                     {posts.data
                         .filter((post, index) => index < 3)
                         .map((post) => (
