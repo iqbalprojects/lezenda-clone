@@ -43,29 +43,54 @@ const Navbar = () => {
                 leaveTo="-translate-x-full opacity-0"
                 className="bg-[#9ecbea] z-10 h-screen fixed top-0 w-full"
             >
-                <button
-                    className="p-8 flex w-full justify-end"
-                    onClick={() => setIsShowing((isShowing) => !isShowing)}
-                    id="close"
-                    aria-label="Close Button"
-                >
-                    <Star className="rotate-45" fill="#1f2144" />
-                </button>
+                <div className="flex justify-end">
+                    <button
+                        className="p-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                        id="close"
+                        aria-label="Close Button"
+                    >
+                        <Star className="rotate-45" fill="#1f2144" />
+                    </button>
+                </div>
                 <ul className="text-2xl flex flex-col gap-y-6">
-                    <li className="border-b-[0.5px] border-b-black pb-2 px-8">
+                    <li
+                        className="border-b-[0.5px] border-b-black pb-2 px-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    >
                         <Link href={"/"}>Home</Link>
                     </li>
-                    <li className="border-b-[0.5px] border-b-black pb-2 px-8">
-                        <Link href={"/"}>Client</Link>
+                    <li
+                        className="border-b-[0.5px] border-b-black pb-2 px-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    >
+                        <Link href={"/posts"}>
+                            <p className="w-full">Client</p>
+                        </Link>
                     </li>
-                    <li className="border-b-[0.5px] border-b-black pb-2 px-8">
-                        <Link href={"/"}>Case Study</Link>
+                    <li
+                        className="border-b-[0.5px] border-b-black pb-2 px-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    >
+                        <Link href={"/"}>
+                            <p className="w-full">Case Study </p>
+                        </Link>
                     </li>
-                    <li className="border-b-[0.5px] border-b-black pb-2 px-8">
-                        <Link href={"/"}>Blog</Link>
+                    <li
+                        className="border-b-[0.5px] border-b-black pb-2 px-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    >
+                        <Link href={"/posts"}>
+                            <p className="w-full">Blog</p>
+                        </Link>
                     </li>
-                    <li className="border-b-[0.5px] border-b-black pb-2 px-8">
-                        <Link href={"/"}>Contact</Link>
+                    <li
+                        className="border-b-[0.5px] border-b-black pb-2 px-8"
+                        onClick={() => setIsShowing((isShowing) => !isShowing)}
+                    >
+                        <Link href={"/"}>
+                            <p className="w-full">Contact</p>
+                        </Link>
                     </li>
                 </ul>
             </Transition>

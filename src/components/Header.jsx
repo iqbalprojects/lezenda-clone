@@ -26,8 +26,8 @@ const Header = () => {
                         height={130}
                         quality={50}
                         loading="lazy"
-                        className="h-auto w-auto ml-2.5 scale-75 xs:scale-90"
                         alt="Lezenda Logo"
+                        className="h-auto w-auto ml-2.5 scale-75 xs:scale-90"
                     />
                 </div>
                 <div className="text-center">

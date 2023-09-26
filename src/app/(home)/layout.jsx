@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/app/globals.css";
 import { poppins } from "@/fonts";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
@@ -16,8 +16,8 @@ export async function generateMetadata() {
         openGraph: {
             title: user.store_name,
             description: user.slogan,
-            url: user.custom_domain,
-            siteName: user.name,
+            url: "https://lezenda.vercel.app",
+            siteName: "Lezenda",
             images: [
                 {
                     url:
