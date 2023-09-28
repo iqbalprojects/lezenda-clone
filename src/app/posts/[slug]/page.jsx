@@ -3,10 +3,15 @@ import Image from "next/image";
 const apiURL =
     process.env.API_DOMAIN + process.env.API_PATH + process.env.CUSTOM_DOMAIN;
 
-export async function generateMetadata({ params: { slug } }) {
-    const { post } = await fetch(apiURL + "posts/" + slug).then((response) =>
+export async function getPost(slug) {
+    const data = await fetch(apiURL + "posts/" + slug).then((response) =>
         response.json()
     );
+    return data;
+}
+
+export async function generateMetadata({ params: { slug } }) {
+    const { post } = await getPost(slug);
     return {
         metadataBase: new URL("https://lezenda.vercel.app"),
         title: post.title,
@@ -34,9 +39,7 @@ export async function generateMetadata({ params: { slug } }) {
 }
 
 const PostDetail = async ({ params: { slug } }) => {
-    const { post } = await fetch(apiURL + "posts/" + slug).then((response) =>
-        response.json()
-    );
+    const { post } = await getPost(slug);
     return (
         <div className="bg-gradient-to-b from-[#ffffd6] to-[#9dccea]">
             <div>
